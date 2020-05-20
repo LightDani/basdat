@@ -1,0 +1,12 @@
+note: for now on, will be using demo_jualan.sql for the database. Old database will be moved here. Update required.
+
+v.1.0 (16 May 2020)
++ Change variable for primary key in produsen and kios. Instead of using id, now is using username
++ Added default landing page
++ Added regitration form page
+
+v.1.1 (18 May 2020)
++ Added login page
++ Added logout procedure
++ Added file landing page for both produsen and kios
++ Minor change on existing code
