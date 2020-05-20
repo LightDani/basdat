@@ -23,18 +23,36 @@
 			<h1 style="font-family: cabin; color: #FFFFFF;">Bright Day Expo</h1>
 			<h2 style="font-family: cabin; color: #FFFFFF;">Berikut adalah daftar nama dari koleksi buku yang kami miliki</h2>
 			<br><br>
-				<ul style="color: #FFFFFF">
-					<div align="left">
-  						<div class="col-md-12">LIST BUKU
-							<br>
-  							<table class="table table-striped">
-  								<h0 style="font-family: cabin; color: #FFFFFF;">Ini seharusnya yang di dalam basdat, tapi aku masih gatau caranya :"(</h0> 
-  								<br><br><br><br><br><br><br><br><br>
-							</table>
- 						</div>
- 					</div>
- 					<br>
- 				</ul>
+			<ul style="color: #FFFFFF">
+				<div align="left">
+  					<div class="col-md-12">LIST BUKU
+						<br>
+  						<table class="table table-striped">
+  							<h0 style="font-family: cabin; color: #FFFFFF;">
+							<tr>
+								<th>Judul Buku</th>
+								<th>Produsen</th>
+								<th>Harga</th>
+							</tr>
+							<?php
+								require_once("config.php");
+								$sql = "SELECT p.nama_produsen, b.judul_buku FROM buku b, produsen p WHERE b.ID_produsen = p.ID_produsen";
+								
+								$stmt = $db->prepare($sql);
+								
+								$stmt->execute();
+								while($user = $stmt->fetch(PDO::FETCH_ASSOC)){
+									print "<tr>";
+									print "<td>".$user['judul_buku']."<td>";
+									print $user['nama_produsen'];
+									print "<br>";
+								}
+							?>
+							</h0> 
+						</table>
+					</div>
+				</div>
+			</ul>			
 		</div>			
 	</div>
 </body>
