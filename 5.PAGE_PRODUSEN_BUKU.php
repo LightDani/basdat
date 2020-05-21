@@ -9,33 +9,43 @@
 		<div class="row" align="center">
 			<br><br>
 			<h1 style="font-family: cabin; color: #FFFFFF;">Bright Day Expo</h1>
-			<h2 style="font-family: cabin; color: #FFFFFF;">Selamat Datang di Halaman Pengelola</h2>
-			<br><br>
+			<h2 style="font-family: cabin; color: #FFFFFF;">Halaman Submit Buku Baru</h2>
+			<br>
+				<div align="left">
 				<ul style="color: #FFFFFF">
+					
 					<form>
   					<div class="form-group">
-   						 <label for="exampleInputEmail1">Email address</label>
-   						 <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+   						 <label for="ID_buku">ID Buku</label>
+   						 <input type="ID_buku" class="form-control" id="ID_buku" placeholder="ID buku">
  					</div>
  					<div class="form-group">
-   						 <label for="exampleInputPassword1">Password</label>
-   						 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+   						 <label for="ID_produsen">ID Produsen</label>
+   						 <input type="ID_produsen" class="form-control" id="ID_produsen" placeholder="ID Produsen">
   					</div>
   					<div class="form-group">
-    					 <label for="exampleInputFile">File input</label>
-    					 <input type="file" id="exampleInputFile">
-    				<p class="help-block">Example block-level help text here.</p>
+   						 <label for="judul_buku">Judul Buku</label>
+   						 <input type="judul_buku" class="form-control" id="judul_buku" placeholder="Judul Buku">
   					</div>
-  					<div class="checkbox">
-    					<label>
-      					<input type="checkbox"> Check me out
-    					</label>
+  					<div class="form-group">
+   						 <label for="kategori">Kategori</label>
+   						 <input type="kategori" class="form-control" id="kategori" placeholder="Kategori">
   					</div>
- 					 <button type="submit" class="btn btn-warning">Submit</button>
+  					<div class="form-group">
+   						 <label for="kata_kunci">Kata Kunci</label>
+   						 <input type="kata_kunci" class="form-control" id="kata_kunci" placeholder="Kata Kunci">
+  					</div>
+  					<div class="form-group">
+   						 <label for="kuantitas">Kuantitas</label>
+   						 <input type="kuantitas" class="form-control" id="kuantitas" placeholder="Kuantitas">
+  					</div><br>
+  					</div>
+ 					<button type="submit" class="btn btn-warning">Submit</button>
 					</form>
- 						<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
- 					</div>
+ 					<br><br><br>
+ 				</div>
  				</ul>
-		</div>
+ 		</div>
+	</div>
 </body>
 </html>
