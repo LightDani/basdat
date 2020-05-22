@@ -30,13 +30,13 @@ if(isset($_POST['login'])){
             if(password_verify($password, $user["password"])){  
                 if($user["level"] == "Produsen"){
                     session_start();
-                    $_SESSION['username'] = $user;
+                    $_SESSION['user'] = $user;
                     $_SESSION['level'] = "Produsen";
                     //sesuaikan nama file tampilan untuk produsen
                     header("Location: produsen.php");
                 }else if($user["level"] == "Kios"){
                     session_start();
-                    $_SESSION['username'] = $user;
+                    $_SESSION['user'] = $user;
                     $_SESSION['level'] = "Kios";
                     //sesuaikan nama file tampilan untuk kios
                     header("Location: kios.php");
