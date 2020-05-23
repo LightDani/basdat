@@ -144,8 +144,6 @@ if(isset($_POST['update'])){
    						 <label for="kuantitas">Kuantitas</label>
    						 <input type="number" class="form-control" name="kuantitas" placeholder="Kuantitas">
   					</div><br>
-  					</div>
-					
 					<input type="submit" class="btn btn-warning" name="update" value="Update"/>
 					</form>
  					<br><br><br>
