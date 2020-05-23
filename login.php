@@ -1,13 +1,13 @@
 <?php
 
 require_once("config.php");
-$username = $password = "";
-$usernameErr = $passwordErr = "";
+$email = $password = "";
+$emailErr = $passwordErr = "";
 if(isset($_POST['login'])){
-    if(empty($_POST["username"])){
-        $usernameErr = "hantu po?";
+    if(empty($_POST["email"])){
+        $emailErr = "hantu po?";
     }else{
-        $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
     }
     if(empty($_POST["password"])){
         $passwordErr = "hmmmmmm";
@@ -15,15 +15,13 @@ if(isset($_POST['login'])){
         $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);        
     }
 
-    $sql = "SELECT * FROM users WHERE username = :username or email = :email";
+    $sql = "SELECT * FROM users WHERE email = :email";
 
     $stmt = $db->prepare($sql);
-    
     $params = array(
-        ":username" => $username,
-        ":email" => $username
+        ":email" => $email
     );
-    if($username && $password){
+    if($email && $password){
         $stmt->execute($params);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if($user){
@@ -46,7 +44,7 @@ if(isset($_POST['login'])){
                 $passwordErr = "Pun10, password salah";
             }
         }else{
-            $usernameErr = "Daptar dulu voss";
+            $emailErr = "Daptar dulu voss";
         }
     }
 }
@@ -74,9 +72,9 @@ if(isset($_POST['login'])){
 
                 <form action ="" method = "POST">
                     <div class = "form-group">
-                        <label for = "username">Username/Email</label>
-                        <span class="error"><?php echo $usernameErr;?></span>
-                        <input class="form-control" type="text" name="username" placeholder="Username atau Email"/>
+                        <label for = "email">Email</label>
+                        <span class="error"><?php echo $emailErr;?></span>
+                        <input class="form-control" type="text" name="email" placeholder="Email"/>
                     </div>
 
                     <div class="form-group">
