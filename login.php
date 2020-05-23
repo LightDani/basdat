@@ -26,16 +26,16 @@ if(isset($_POST['login'])){
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         if($user){
             if(password_verify($password, $user["password"])){  
-                if($user["level"] == "Produsen"){
+                if($user["level"] == "produsen"){
                     session_start();
                     $_SESSION['user'] = $user;
-                    $_SESSION['level'] = "Produsen";
+                    $_SESSION['level'] = "produsen";
                     //sesuaikan nama file tampilan untuk produsen
                     header("Location: produsen.php");
-                }else if($user["level"] == "Kios"){
+                }else if($user["level"] == "kios"){
                     session_start();
                     $_SESSION['user'] = $user;
-                    $_SESSION['level'] = "Kios";
+                    $_SESSION['level'] = "kios";
                     //sesuaikan nama file tampilan untuk kios
                     header("Location: kios.php");
                 }
