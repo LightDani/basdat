@@ -50,6 +50,8 @@ if(isset($_POST['register'])){
         $saved = $stmt->execute($params);
         if($saved){
             header("Location: login.php");
+        }else{
+            $emailErr = "Email is already used";
         }
     }
 }
