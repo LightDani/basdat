@@ -66,7 +66,7 @@
 					</div>
  				</div>
  			</ul>
-			 <table class="table table-striped" style="font-family: cabin; color: #FFFFFF;">
+			<table class="table table-striped" style="font-family: cabin; color: #FFFFFF;">
 			<h0 style="font-family: cabin; color: #FFFFFF;">
 			<?php
 				if($opt == 1){
@@ -157,6 +157,8 @@
 					print "<br><br><br><br><br><br><br><br><br><br>";
 				}
 			?>
+			</table>
 		</div>
+	</div>
 </body>
 </html>

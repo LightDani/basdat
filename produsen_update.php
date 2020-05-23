@@ -48,7 +48,7 @@ if(isset($_POST['update'])){
 		$kuantitas = filter_input(INPUT_POST, 'kuantitas', FILTER_SANITIZE_NUMBER_INT);
     }
 	
-	$sql = "SELECT ID_buku FROM buku WHERE ID_produsen =".$_SESSION['user']['username'];
+	$sql = "SELECT ID_buku FROM buku WHERE ID_buku =".$ID;
 	$stmt = $db->prepare($sql);
 	$stmt->execute();
 	$cekID = $stmt->fetch(PDO::FETCH_ASSOC);

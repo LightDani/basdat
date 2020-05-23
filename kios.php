@@ -71,7 +71,7 @@
  				</div>
  				<br>
  			</ul>
-			 <table class="table table-striped" style="font-family: cabin; color: #FFFFFF;>
+			 <table class="table table-striped" style="font-family: cabin; color: #FFFFFF;">
 			<h0 style="font-family: cabin; color: #FFFFFF;">
 			<?php
 				if($opt == 1){
@@ -89,7 +89,10 @@
 						"<td>".$user['judul_buku'].
 						"<td>".$user['nama_produsen'].
 						"<td>".$user['harga'].
-						"<td><a href='buy.php' style='color:#FFFFFF;'>Beli</a>".
+						"<td><a style='color:#FFFFFF;'".
+						"href='buy.php?id=".
+						$user["ID_buku"].
+						"'>Beli</a>".
 						"</tr>";
 					}
 				}else if($opt == 2){

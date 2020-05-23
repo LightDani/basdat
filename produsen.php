@@ -70,8 +70,8 @@
 					"<th>Kategori</th>".
 					"<th>Harga</th>".
 					"<th>Kuantitas</th>".
+					"<th></th>".
 					"</tr>";
-					//require_once("config.php");
 					$sql = "SELECT ID_buku, judul_buku, kategori, harga, kuantitas FROM buku WHERE ID_produsen =".$_SESSION['user']['username'];
 					$stmt = $db->prepare($sql);
 					$stmt->execute();
@@ -82,9 +82,12 @@
 						"<td>".$user['kategori'].
 						"<td>".$user['harga'].
 						"<td>".$user['kuantitas'].
+						"<td><a style='color:#FFFFFF;'".
+						"href='delete.php?id=".
+						$user["ID_buku"].
+						"'>Hapus</a>".
 						"</tr>";
 					}
-					print "<br><br><br><br><br><br>";
 				}else if($opt == 2){
 					header('Location: produsen_update.php');
 				}else if($opt == 3){
@@ -116,7 +119,6 @@
 						"<td>".$total.
 						"</tr>";
 					}
-					print "<br><br><br><br><br><br>";
 				}else{
 					print "<br><br><br><br><br><br>
 					<br><br><br><br><br><br>

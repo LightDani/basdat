@@ -33,18 +33,21 @@
 								<th>Judul Buku</th>
 								<th>Produsen</th>
 								<th>Harga</th>
+								<th>Sisa Barang</th>
 							</tr>
 							<?php
 								require_once("config.php");
-								$sql = "SELECT p.nama_produsen, b.judul_buku FROM buku b, produsen p WHERE b.ID_produsen = p.ID_produsen";
+								$sql = "SELECT p.nama_produsen, b.judul_buku, b.harga, b.kuantitas FROM buku b, produsen p WHERE b.ID_produsen = p.ID_produsen";
 								
 								$stmt = $db->prepare($sql);
 								
 								$stmt->execute();
 								while($user = $stmt->fetch(PDO::FETCH_ASSOC)){
 									print "<tr>";
-									print "<td>".$user['judul_buku']."<td>";
-									print $user['nama_produsen'];
+									print "<td>".$user['judul_buku'];
+									print "<td>".$user['nama_produsen'];
+									print "<td>".$user['harga'];
+									print "<td>".$user['kuantitas'];
 									print "<br>";
 								}
 							?>
