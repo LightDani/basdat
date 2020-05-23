@@ -1,6 +1,7 @@
 <?php
 	require_once('auth_p.php');
 	require_once('config.php');
+
 	$sql = "SELECT nama_produsen FROM produsen WHERE ID_produsen =".$_SESSION['user']['username'];
 	$stmt = $db->prepare($sql);
 	$stmt->execute();
@@ -38,7 +39,7 @@
 			<br>
 			<h1 style="font-family: cabin; color: #FFFFFF;">Bright Day Expo</h1>
 			<h2 style="font-family: cabin; color: #FFFFFF;">Selamat Datang di Halaman Pengelola</h2>
-			<h3 style="font-family: cabin; color: #FFFFFF;"><?php echo $namaP['nama_produsen'] ?></h3>
+			<h3 style="font-family: cabin; color: #FFFFFF;"><?php if($namaP){echo $namaP['nama_produsen'];} ?></h3>
 			<br><br>
 			<ul style="color: #FFFFFF">
 				<div class="row">
