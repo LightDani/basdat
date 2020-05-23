@@ -47,10 +47,21 @@ if(isset($_POST['register'])){
         ":level" => $level
     );
     if($name && $username && $password && $email && $level){
-        $saved = $stmt->execute($params);
-        if($saved){
+        if($level == 'produsen'){
+            $sql2 = "INSERT INTO `produsen` (ID_produsen, nama_produsen) VALUES (:username, :name)";
+        }else if($level == 'kios'){
+            $sql2 = "INSERT INTO `kios` (ID_kios, nama_kios) VALUES (:username, :name)";
+        }
+        $stmt2 = $db->prepare($sql2);
+        $params2 = array(
+            ":username" => $username,
+            ":name" => $name
+        );
+        try{
+            $saved = $stmt->execute($params);
+            $saved2 = $stmt2->execute($params2);
             header("Location: login.php");
-        }else{
+        }catch(PDOException $e){
             $emailErr = "Email is already used";
         }
     }
@@ -110,8 +121,8 @@ if(isset($_POST['register'])){
                     <span class="error">* <?php echo $levelErr;?></span>
                 </div>
 
-                <input type="radio" name="level" <?php if (isset($level) && $level=="Produsen") echo "checked";?> value="Produsen">Produsen
-                <input type="radio" name="level" <?php if (isset($level) && $level=="Kios") echo "checked";?> value="Kios">Kios
+                <input type="radio" name="level" <?php if (isset($level) && $level=="produsen") echo "checked";?> value="produsen">produsen
+                <input type="radio" name="level" <?php if (isset($level) && $level=="kios") echo "checked";?> value="kios">kios
 
                 <input type="submit" class="btn btn-success btn-block" name="register" value="Daftar" />
             </form>  
