@@ -10,7 +10,6 @@ if(isset($_POST['konfirmasi'])){
     } else {
         $confirm = filter_input(INPUT_POST, 'confirm', FILTER_SANITIZE_STRING);
     }
-    //$sql = "DELETE FROM `buku` WHERE ID_buku = '".:ID_buku."' AND ID_produsen = '".:ID_produsen.";
     $sql = "DELETE FROM buku WHERE ID_buku=:ID_buku AND ID_produsen=:ID_produsen";
     $stmt = $db->prepare($sql);
 
@@ -18,7 +17,6 @@ if(isset($_POST['konfirmasi'])){
         ":ID_buku" => $_GET['id'],
         ":ID_produsen" => $_SESSION['user']['username']
     );
-    //die($params[':ID_buku']." ".$params[':ID_produsen']);
 
     if($confirm == 'confirm'){
         $saved = $stmt->execute($params);
